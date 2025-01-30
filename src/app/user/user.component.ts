@@ -16,4 +16,9 @@ export class UserComponent {
   get imagePath() {
     return 'assets/' + this.selectedUser.avatar;
   }
+
+  onUserSelected() {
+    const randomNum = Math.floor(Math.random() * users.length);
+    this.selectedUser = users[randomNum];
+  }
 }
