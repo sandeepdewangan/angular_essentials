@@ -1,4 +1,4 @@
-import { Component, computed, input, Input } from '@angular/core';
+import { Component, computed, EventEmitter, input, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -7,21 +7,17 @@ import { Component, computed, input, Input } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  // @Input({ required: true }) name!: string;
-  // @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) id!: string;
+  @Input({ required: true }) name!: string;
+  @Input({ required: true }) avatar!: string;
 
-  // name and avatar are read only fields.
-  name = input.required<string>();
-  avatar = input.required<string>();
+  @Output() select = new EventEmitter();
 
-  // angular will recompute the imagePath, only when avatar value changes.
-  imagePath = computed(() => 'assets/' + this.avatar());
+  get imagePath() {
+    return 'assets/' + this.avatar;
+  }
 
-  // get imagePath() {
-  //   return 'assets/' + this.avatar;
-  // }
-
-  onUserSelected() {
-
+  onSelectUser() {
+    this.select.emit(this.id);
   }
 }

@@ -1,9 +1,29 @@
 <app-header></app-header>
 <div>
   <div>
-    <app-user [name]="users[0].name" [avatar]="users[0].avatar" />
-    <app-user [name]="users[1].name" [avatar]="users[0].avatar" />
-    <app-user [name]="users[2].name" [avatar]="users[0].avatar" />
-    <app-user [name]="users[3].name" [avatar]="users[0].avatar" />
+    <app-user
+      [id]="users[0].id"
+      [name]="users[0].name"
+      [avatar]="users[0].avatar"
+      (select)="onSelectUser($event)"
+    />
+    <app-user
+      [id]="users[1].id"
+      [name]="users[1].name"
+      [avatar]="users[0].avatar"
+      (select)="onSelectUser($event)"
+    />
+    <app-user
+      [id]="users[2].id"
+      [name]="users[2].name"
+      [avatar]="users[0].avatar"
+      (select)="onSelectUser($event)"
+    />
+    <app-user
+      [id]="users[3].id"
+      [name]="users[3].name"
+      [avatar]="users[0].avatar"
+      (select)="onSelectUser($event)"
+    />
   </div>
 </div>
